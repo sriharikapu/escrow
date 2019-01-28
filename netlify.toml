@@ -22,6 +22,16 @@
   REACT_APP_ARBITRATOR_EXTRADATA = "0x00"
   REACT_APP_DEV_IPFS_PROVIDER = ""
   YARN_FLAGS = "--no-ignore-optional"
+# Deploy Preview context: All Deploy Previews
+# will inherit these settings.
+[context.deploy-preview.environment]
+  NODE_VERSION = "11.0.0"
+  REACT_APP_DEV_ARBITRATOR_ADDRESS = "0x8847c0947a613c3de443f73351c3815ad0d37f98"
+  REACT_APP_DEV_ARBITRABLE_ADDRESS = "0x3d7A9f7C1A36Bc6b9C9E8C9b34605d818D33612f"
+  REACT_APP_DEV_FEE_TIMEOUT= "240"
+  REACT_APP_ARBITRATOR_EXTRADATA = "0x00"
+  REACT_APP_DEV_IPFS_PROVIDER = ""
+  YARN_FLAGS = "--no-ignore-optional"
 # Production context: All deploys to the main
 # repository branch will inherit these settings.
 [context.production]
