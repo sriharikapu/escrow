@@ -256,7 +256,7 @@ function* fetchArbitrabletx({ payload: { id } }) {
       arbitratorEth.methods.disputeStatus(arbitrableTransaction.disputeId).call
     )
 
-    if (disputeStatus.toString() === disputeConstants.SOLVED.toString())
+    if (disputeStatus.toString() === disputeConstants.SOLVED.toString() || disputeStatus.toString() === disputeConstants.APPEALABLE.toString())
       ruling = yield call(
         arbitratorEth.methods.currentRuling(arbitrableTransaction.disputeId).call
       )
@@ -270,7 +270,7 @@ function* fetchArbitrabletx({ payload: { id } }) {
     ...arbitrableTransaction, // Overwrite transaction.amount
     party: accounts[0] === arbitrableTransaction.buyer ? 'buyer' : 'seller',
     ruling,
-    appealable: disputeStatus === disputeConstants.APPEALABLE
+    appealable: disputeStatus === disputeConstants.APPEALABLE.toString()
   }
 }
 
